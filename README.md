@@ -1,1 +1,1 @@
-I will use this project in order to do some tests or try new things such as Grails version 3, Docker, SemaphoreCI,... and any other thing I want to try.
+I will use this project for trying new things such as Grails version 3, Docker, SemaphoreCI,... and any other thing I want to try.
