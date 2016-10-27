@@ -20,5 +20,5 @@ task test(type: NpmTask, dependsOn: 'npmInstall') {
 }
 
 task integrationTest(type: NpmTask, dependsOn: 'npmInstall') {
-    args = ['run', 'e2e']
+    args = ['run', 'integration-test']
 }
