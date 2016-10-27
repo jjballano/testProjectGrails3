@@ -5,6 +5,6 @@ class Task {
     String name
     Date expiryDate
     static constraints = {
-        //expiryDate nullable: true
+        expiryDate nullable: true
     }
 }
