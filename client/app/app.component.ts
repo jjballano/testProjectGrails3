@@ -81,20 +81,24 @@ export class Trip {
 
 
 export class Unzulu implements OnInit{
-  constructor(private cityService: CityService) {}
   user = 'Jesús';
   currentTrip: Trip = {
     id: 1,
     name: 'Living South America'
   }
-  cities = [];
-  getCities(): void {
-    this.cities = this.cityService.all();
-  }
+  cities: City[];
   selectedCity: City;
+
+  constructor(private cityService: CityService) {}
+
+  getCities(): void {
+    this.cityService.all().then(cities => this.cities = cities);
+  }
+
   onSelect(city: City): void {
     this.selectedCity = city;
   }
+  
   ngOnInit(): void {
     this.getCities();
   }

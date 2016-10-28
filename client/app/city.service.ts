@@ -17,7 +17,7 @@ const CITIES: City[] = [
 
 @Injectable()
 export class CityService {
-  all(): City[] {
-    return CITIES;
+  all(): Promise<City[]> {
+    return Promise.resolve(CITIES);
   }
 }
