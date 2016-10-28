@@ -1,19 +1,10 @@
 import { Component } from '@angular/core';
+import { Country } from './country';
+import { City } from './city';
 
 export class Trip {
   id: number;
   name: string;
-}
-
-export class Country {
-  id: number;
-  name: string;
-}
-
-export class City {
-  id: number;
-  name: string;
-  country: Country;
 }
 
 const COUNTRIES : Country[] = [
@@ -49,18 +40,7 @@ const CITIES: City[] = [
         </li>
       </ul>
     </div>
-    <div *ngIf="selectedCity">
-      <div>
-        <h2>{{selectedCity.name}} details</h2>
-        <div> 
-          <label>id: </label>{{selectedCity.id}}
-        </div>
-        <div> 
-          <label>name: </label>
-          <input [(ngModel)]="selectedCity.name" placeholder="name">
-        </div>
-      </div>
-    </div>
+    <city-detail [city]="selectedCity"></city-detail>
     `,
     styles: [`
       .selected {
