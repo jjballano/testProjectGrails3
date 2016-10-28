@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 
-import { TaskList } from './app.component' 
+
+import { Unzulu } from './app.component' 
 
 @NgModule({
-  imports: [ BrowserModule ],
-  declarations: [ TaskList ],
-  bootstrap: [ TaskList ]
+  imports: [ BrowserModule, FormsModule ],
+  declarations: [ Unzulu ],
+  bootstrap: [ Unzulu ]
 })
 
 export class AppModule {}
