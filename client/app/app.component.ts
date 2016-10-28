@@ -1,25 +1,14 @@
-import { Component } from '@angular/core';
-import { Country } from './country';
+import { Component, OnInit } from '@angular/core';
 import { City } from './city';
+import { CityService } from './city.service' 
 
 export class Trip {
   id: number;
   name: string;
 }
 
-const COUNTRIES : Country[] = [
-  {id: 1, name: 'Argentina'},
-  {id: 2, name: 'Chile'},
-  {id: 3, name: 'Perú'}
-]
-
-const CITIES: City[] = [
-  {id: 1, name: 'Buenos Aires', country: COUNTRIES[0] },
-  {id: 2, name: 'Santiago de Chile', country: COUNTRIES[1] },
-  {id: 3, name: 'Lima', country: COUNTRIES[2] },
-]
-
 @Component({
+  providers: [CityService],
   selector: 'unzulu',
   template: `
     <h1>Hi {{user}}</h1>
@@ -90,15 +79,23 @@ const CITIES: City[] = [
     `]    
 })
 
-export class Unzulu {
+
+export class Unzulu implements OnInit{
+  constructor(private cityService: CityService) {}
   user = 'Jesús';
   currentTrip: Trip = {
     id: 1,
     name: 'Living South America'
   }
-  cities = CITIES;
+  cities = [];
+  getCities(): void {
+    this.cities = this.cityService.all();
+  }
   selectedCity: City;
   onSelect(city: City): void {
     this.selectedCity = city;
+  }
+  ngOnInit(): void {
+    this.getCities();
   }
 }
