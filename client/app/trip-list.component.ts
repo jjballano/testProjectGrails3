@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
+import { TripService } from './trip.service'
+import { Trip } from './trip'
 
 @Component({
   moduleId: module.id,
@@ -7,6 +10,11 @@ import { Component } from '@angular/core';
 })
 
 export class TripListComponent {
-  trips = [{id: 1, name: "First trip"},
-          {id: 2, name: "Second trip"}]
+  trips: Trip[] = [];
+
+  constructor(private tripService: TripService){}        
+
+  ngOnInit(){
+    this.tripService.all().then(trips => this.trips = trips);
+  }
 }

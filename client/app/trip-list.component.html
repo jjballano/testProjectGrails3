@@ -1,3 +1,3 @@
 <ul>
-  <li *ngFor="let trip of trips">{{trip.name}}</li>
+  <li *ngFor="let trip of trips"><a routerLink="/trip/{{trip.id}}">{{trip.name}}</a></li>
 </ul>

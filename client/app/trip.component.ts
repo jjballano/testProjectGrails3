@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { City } from './city';
-import { CityService } from './city.service' 
+import { Trip } from './trip';
+import { TripService } from './trip.service' 
 
 @Component({
   moduleId: module.id,
@@ -56,22 +58,21 @@ import { CityService } from './city.service'
 
 
 export class TripComponent implements OnInit{
-  id = 1;
-  name = 'Living South America';  
-  cities: City[];
-  selectedCity: City;
+  trip: Trip = {};  
+  selectedCity: City = {};
 
-  constructor(private cityService: CityService) {}
-
-  getCities(): void {
-    this.cityService.all().then(cities => this.cities = cities);
-  }
+  constructor(private route: ActivatedRoute, private tripService: TripService) {}
 
   onSelect(city: City): void {
     this.selectedCity = city;
   }
 
   ngOnInit(): void {
-    this.getCities();
+    this.route.params.forEach((params) => {
+      const id = +params['id'];
+      this.tripService.current(id).then((trip) => {
+        this.trip = trip;
+      });
+    });
   }
 }

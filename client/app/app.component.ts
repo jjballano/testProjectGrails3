@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   moduleId: module.id,
@@ -8,8 +8,5 @@ import { Component } from '@angular/core';
 
 export class Unzulu {
   user = 'Jesus';
-  trips = [{id: 1, name: "First trip"},
-          {id: 2, name: "Second trip"}]
-  currentTrip = this.trips[0];
 
 }

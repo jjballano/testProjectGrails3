@@ -1,16 +1,16 @@
-<h2>Your current trip is {{name}}.</h2>
+<h2>Your current trip is {{trip.name}}.</h2>
 <h3>Trip info: </h3>
 <div> 
-  <label>id: </label>{{id}}
+  <label>id: </label>{{trip.id}}
 </div>
 <div> 
   <label>name: </label>
-  <input [(ngModel)]="name" placeholder="name">
+  <input [(ngModel)]="trip.name" placeholder="name">
 </div>
 <div>
   <h2>Cities</h2>
   <ul class="cities">
-    <li *ngFor="let city of cities" (click)="onSelect(city)" [class.selected]="city == selectedCity">
+    <li *ngFor="let city of trip.cities" (click)="onSelect(city)" [class.selected]="city == selectedCity">
       <span class="city">{{city.name}}</span> <span>{{city.country.name}}</span>
     </li>
   </ul>
