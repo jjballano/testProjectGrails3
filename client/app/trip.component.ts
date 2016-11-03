@@ -3,27 +3,9 @@ import { City } from './city';
 import { CityService } from './city.service' 
 
 @Component({
+  moduleId: module.id,
   selector: 'trip',
-  template: `
-    <h2>Your current trip is {{name}}.</h2>
-    <h3>Trip info: </h3>
-    <div> 
-      <label>id: </label>{{id}}
-    </div>
-    <div> 
-      <label>name: </label>
-      <input [(ngModel)]="name" placeholder="name">
-    </div>
-    <div>
-      <h2>Cities</h2>
-      <ul class="cities">
-        <li *ngFor="let city of cities" (click)="onSelect(city)" [class.selected]="city == selectedCity">
-          <span class="city">{{city.name}}</span> <span>{{city.country.name}}</span>
-        </li>
-      </ul>
-    </div>
-    <city-detail [city]="selectedCity"></city-detail>
-    `,
+  templateUrl: 'trip.component.html',
     styles: [`
       .selected {
         background-color: #CFD8DC !important;

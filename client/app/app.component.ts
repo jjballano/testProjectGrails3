@@ -1,15 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'unzulu',
-  template: `
-    <h1>Hi {{user}}</h1>
-    <nav>
-      <a routerLink="/trip">Home</a>
-      <a routerLink="/trip/{{currentTrip.id}}">Current trip</a>
-    </nav>
-    <router-outlet></router-outlet>
-  `  
+  templateUrl: 'app.component.html'
 })
 
 export class Unzulu {

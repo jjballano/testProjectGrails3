@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
+  moduleId: module.id,
   selector: 'trip-list',
-  template: `
-    <ul>
-      <li *ngFor="let trip of trips">{{trip.name}}</li>
-    </ul>
-  `  
+  templateUrl: 'trip-list.component.html'
 })
 
 export class TripListComponent {
