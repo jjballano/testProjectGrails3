@@ -9,20 +9,28 @@ import { TripComponent } from './trip.component';
 import { CityDetailComponent } from './city-detail.component'; 
 import { CityService } from './city.service' 
 
+var routes = [
+  {
+    path: '',
+    redirectTo: '/trip',
+    pathMatch: 'full'
+  },
+  {
+    path: 'trip',
+    component: TripListComponent
+  },
+  {
+    path: 'trip/:id',
+    component: TripComponent
+  }
+]
+
+
 @NgModule({
   imports: [ 
     BrowserModule, 
     FormsModule,
-    RouterModule.forRoot([
-      {
-        path: '',
-        component: TripListComponent
-      },
-      {
-        path: 'trip/:id',
-        component: TripComponent
-      }
-    ])
+    RouterModule.forRoot(routes)
   ],
   declarations: [ Unzulu, TripListComponent, TripComponent, CityDetailComponent ],
   providers: [ CityService ],
